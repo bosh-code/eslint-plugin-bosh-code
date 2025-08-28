@@ -2,10 +2,10 @@ import { ESLintUtils } from '@typescript-eslint/utils';
 import path from 'node:path';
 
 const createRule = ESLintUtils.RuleCreator(
-  name => `https://example.com/rule/${name}`,
+  name => `https://github.com/bosh-code/eslint-plugin-bosh/src/rules/${name}`
 );
 
-type InvalidHookExtension = ESLintUtils.RuleModule<"invalidHookExtension", [], unknown, ESLintUtils.RuleListener>
+type InvalidHookExtension = ESLintUtils.RuleModule<"invalid-hook-extension", [], unknown, ESLintUtils.RuleListener>
 
 export const rule: InvalidHookExtension = createRule({
   create({filename, report}) {
@@ -17,7 +17,7 @@ export const rule: InvalidHookExtension = createRule({
         if (id != null) {
           if (basename.startsWith('use') && extension === '.tsx') {
               report({
-                  messageId: 'invalidHookExtension',
+                  messageId: 'invalid-hook-extension',
                   node: id,
               });
           }
@@ -30,7 +30,7 @@ export const rule: InvalidHookExtension = createRule({
     type: 'problem',
     schema: [],
     messages: {
-      invalidHookExtension: 'Hooks must end in .ts'
+      'invalid-hook-extension': 'Hooks must end in .ts'
     },
     docs: {
       description: "enforce hooks files to use '.ts' extension and not '.tsx'",
