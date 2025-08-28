@@ -34,6 +34,7 @@ export default [
   ...bosh.configs.react,
   {
     rules: {
+      "bosh/invalid-hook-extension": "error",
       "simple-import-sort/imports": createImportSortRule({
         firstGroup: ["react", "^@?\\w"],
         internalGroups: [

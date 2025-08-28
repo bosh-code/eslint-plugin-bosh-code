@@ -8,6 +8,7 @@ import reactPerf from 'eslint-plugin-react-perf';
 import importPlugin from 'eslint-plugin-import';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
 
 export const reactConfig: FlatConfig.Config[] = [
   {
@@ -29,6 +30,11 @@ export const reactConfig: FlatConfig.Config[] = [
       'react-perf': reactPerf,
       jsxA11y,
       'simple-import-sort': simpleImportSort,
+      bosh: {
+        rules: {
+          'invalid-hook-extension': invalidHookExtension,
+        },
+      },
     },
     settings: {
       react: {
@@ -43,6 +49,9 @@ export const reactConfig: FlatConfig.Config[] = [
       '@tanstack/query/no-unstable-deps': 'error',
       '@tanstack/query/no-void-query-fn': 'error',
       '@tanstack/query/stable-query-client': 'error',
+      
+      // Custom bosh rules
+      'bosh/invalid-hook-extension': 'error',      
       
       // React performance rules
       'react-perf/jsx-no-jsx-as-prop': 'error',
