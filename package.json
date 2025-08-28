@@ -2,6 +2,8 @@
   "name": "eslint-plugin-bosh",
   "version": "1.0.0",
   "description": "",
+  "private": true,
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,5 +11,34 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.15.0"
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "pnpm@10.15.0",
+  "dependencies": {
+    "@typescript-eslint/utils": "^8.41.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@tanstack/eslint-plugin-query": "^5.83.1",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsdoc": "^54.1.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-no-unary-plus": "^0.3.1",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-perf": "^3.3.3",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sonarjs": "^3.0.4",
+    "eslint-plugin-unicorn": "^60.0.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1"
+  }
 }
