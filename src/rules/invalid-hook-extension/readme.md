@@ -1,3 +1,3 @@
-# `invalid-hook-filename`
+# `invalid-hook-extension`
 
-Docs for the invalid hook filename rule
+Docs for the invalid hook extension rule
