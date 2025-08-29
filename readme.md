@@ -54,3 +54,12 @@ export default [
 - `ts` - TypeScript-specific rules
 - `react` - React, JSX, accessibility, performance rules
 - `node` - Node.js environment globals
+
+## `// TODO:`
+
+- eslint-config-canonical has a lot of nice rules, have a look there for inspiration
+- [ESLint Stylistic](https://eslint.style/)
+- Testing, jest/vitest?
+- Prettier, in this repo and in eslint config.
+- JSON linting
+- YAML linting
