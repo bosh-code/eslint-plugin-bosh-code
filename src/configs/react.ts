@@ -19,10 +19,10 @@ export const reactConfig: FlatConfig.Config[] = [
       ...reactHooks.configs['recommended-latest'],
       ...reactRefresh.configs.vite,
       ...importPlugin.flatConfigs.react,
-      ...jsxA11y.flatConfigs.recommended,
+      ...jsxA11y.flatConfigs.recommended
     ],
     languageOptions: {
-      globals: globals.browser,
+      globals: globals.browser
     },
     plugins: {
       '@tanstack/query': pluginQuery,
@@ -32,14 +32,14 @@ export const reactConfig: FlatConfig.Config[] = [
       'simple-import-sort': simpleImportSort,
       bosh: {
         rules: {
-          'invalid-hook-extension': invalidHookExtension,
-        },
-      },
+          'invalid-hook-extension': invalidHookExtension
+        }
+      }
     },
     settings: {
       react: {
-        version: 'detect', // Auto-detect React version
-      },
+        version: 'detect' // Auto-detect React version
+      }
     },
     rules: {
       // TanStack Query rules
@@ -49,16 +49,16 @@ export const reactConfig: FlatConfig.Config[] = [
       '@tanstack/query/no-unstable-deps': 'error',
       '@tanstack/query/no-void-query-fn': 'error',
       '@tanstack/query/stable-query-client': 'error',
-      
+
       // Custom bosh rules
-      'bosh/invalid-hook-extension': 'error',      
-      
+      'bosh/invalid-hook-extension': 'error',
+
       // React performance rules
       'react-perf/jsx-no-jsx-as-prop': 'error',
       'react-perf/jsx-no-new-array-as-prop': 'error',
       'react-perf/jsx-no-new-function-as-prop': 'error',
       'react-perf/jsx-no-new-object-as-prop': 'error',
-      
+
       // React rules overrides
       'react/destructuring-assignment': 'error',
       'react/forbid-component-props': 'off',
@@ -66,8 +66,8 @@ export const reactConfig: FlatConfig.Config[] = [
         'error',
         {
           namedComponents: 'arrow-function',
-          unnamedComponents: 'arrow-function',
-        },
+          unnamedComponents: 'arrow-function'
+        }
       ],
       'react/hook-use-state': 'off',
       'react/jsx-filename-extension': 'off',
@@ -84,11 +84,11 @@ export const reactConfig: FlatConfig.Config[] = [
       'react/jsx-tag-spacing': 'off',
       'react/react-in-jsx-scope': 'off',
       'react/require-default-props': 'off',
-      
+
       // JSX A11y overrides
       'jsx-a11y/click-events-have-key-events': 'warn',
       'jsx-a11y/no-static-element-interactions': 'warn',
-      
+
       // Import sort for React projects
       'simple-import-sort/imports': [
         'error',
@@ -103,10 +103,10 @@ export const reactConfig: FlatConfig.Config[] = [
             // Other relative imports
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
             // Style imports
-            ['^.+\\.s?css$'],
-          ],
-        },
-      ],
-    },
-  },
+            ['^.+\\.s?css$']
+          ]
+        }
+      ]
+    }
+  }
 ];

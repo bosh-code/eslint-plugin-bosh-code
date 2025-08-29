@@ -32,19 +32,19 @@ export const baseConfig: FlatConfig.Config[] = [
         'error',
         {
           selector: ':matches(ExportAllDeclaration)',
-          message: 'Export only the modules you need.',
-        },
+          message: 'Export only the modules you need.'
+        }
       ],
-      
+
       // ESLint comments
       'eslint-comments/require-description': 'error',
-            
+
       // JSDoc rules
       'jsdoc/require-jsdoc': 'off',
-      
+
       // Import rules
       'import/no-unresolved': 'off', // Let TypeScript handle this
-      
+
       // Simple import sort with basic configuration
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': [
@@ -60,20 +60,20 @@ export const baseConfig: FlatConfig.Config[] = [
             // Other relative imports
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
             // Style imports
-            ['^.+\\.s?css$'],
-          ],
-        },
+            ['^.+\\.s?css$']
+          ]
+        }
       ],
-      
+
       // Unicorn overrides
       'unicorn/import-style': 'off',
       'unicorn/no-lonely-if': 'off',
       'unicorn/no-null': 'off',
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prevent-abbreviations': 'off',
-      
+
       // Custom rules
-      'no-unary-plus/no-unary-plus': 'error',
-    },
-  },
+      'no-unary-plus/no-unary-plus': 'error'
+    }
+  }
 ];

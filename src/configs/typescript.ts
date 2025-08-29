@@ -6,16 +6,13 @@ export const tsConfig: FlatConfig.Config[] = [
   {
     name: 'bosh/typescript',
     files: ['**/*.{ts,tsx}'],
-    extends: [
-      ...tseslint.configs.recommended,
-      ...importPlugin.flatConfigs.typescript
-    ],
+    extends: [...tseslint.configs.recommended, ...importPlugin.flatConfigs.typescript],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2020
     },
     rules: {
       // TypeScript specific rules
-      '@typescript-eslint/consistent-type-imports': 'error',
-    },
-  },
+      '@typescript-eslint/consistent-type-imports': 'error'
+    }
+  }
 ];
