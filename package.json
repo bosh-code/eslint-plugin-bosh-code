@@ -6,6 +6,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "build": "tsdown",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -44,6 +45,7 @@
     "@types/node": "^24.3.0",
     "eslint": "^9.34.0",
     "eslint-plugin-eslint-plugin": "^7.0.0",
+    "tsdown": "^0.14.2",
     "typescript": "^5.9.2"
   }
 }
