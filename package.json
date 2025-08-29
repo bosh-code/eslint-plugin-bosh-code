@@ -67,6 +67,7 @@
     "@types/node": "^24.3.0",
     "eslint": "^9.34.0",
     "eslint-plugin-eslint-plugin": "^7.0.0",
+    "prettier": "^3.6.2",
     "tsdown": "^0.14.2",
     "typescript": "^5.9.2"
   }
