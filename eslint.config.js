@@ -8,7 +8,7 @@ import nodePlugin from 'eslint-plugin-n';
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['src/**/*'],
+    files: ['./**/*'],
     extends: [
       eslintPlugin.configs.all,
       js.configs.recommended,
