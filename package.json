@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
-  "type": "module",
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bosh-code/eslint-plugin-bosh.git"
+  },
   "scripts": {
     "build": "tsdown",
     "lint": "eslint .",
@@ -17,6 +19,26 @@
     "node": ">=24.6.0"
   },
   "packageManager": "pnpm@10.15.0",
+  "type": "module",
+  "files": [
+    "dist",
+    "!*.tsbuildinfo",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "default": "./dist/utils/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
     "eslint": "^9.34.0",
     "typescript": "^5.9.2"
