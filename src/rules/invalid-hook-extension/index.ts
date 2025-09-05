@@ -1,4 +1,5 @@
 import { ESLintUtils } from '@typescript-eslint/utils';
+import { Linter } from 'eslint';
 import path from 'node:path';
 
 const createRule = ESLintUtils.RuleCreator(

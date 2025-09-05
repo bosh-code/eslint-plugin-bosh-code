@@ -1,7 +1,7 @@
-import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import globals from 'globals';
+import type { Linter } from 'eslint';
 
-export const nodeConfig: FlatConfig.Config[] = [
+export const nodeConfig: Linter.Config[] = [
   {
     name: 'bosh/node',
     languageOptions: {
@@ -10,7 +10,6 @@ export const nodeConfig: FlatConfig.Config[] = [
       }
     },
     rules: {
-      // Node.js specific rules can be added here
       'no-console': 'off' // Allow console in Node.js
     }
   }

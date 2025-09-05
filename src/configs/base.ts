@@ -1,4 +1,3 @@
-import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
 import js from '@eslint/js';
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
@@ -7,17 +6,16 @@ import pluginPromise from 'eslint-plugin-promise';
 import pluginNoUnaryPlus from 'eslint-plugin-no-unary-plus';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import jsdoc from 'eslint-plugin-jsdoc';
+import type { Linter } from 'eslint';
 
-export const baseConfig: FlatConfig.Config[] = [
+export const baseConfig: Linter.Config[] = [
+  js.configs.recommended,
+  eslintPluginUnicorn.configs.recommended,
+  ...pluginPromise.configs['flat/recommended'],
+  importPlugin.flatConfigs.recommended,
+  jsdoc.configs['flat/recommended'],
   {
     name: 'bosh/base',
-    extends: [
-      js.configs.recommended,
-      eslintPluginUnicorn.configs.recommended,
-      pluginPromise.configs['flat/recommended'],
-      importPlugin.flatConfigs.recommended,
-      jsdoc.configs['flat/recommended']
-    ],
     plugins: {
       'eslint-comments': eslintComments,
       'simple-import-sort': simpleImportSort,

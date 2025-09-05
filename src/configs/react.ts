@@ -1,4 +1,4 @@
-import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
+import type { Linter } from 'eslint';
 import globals from 'globals';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -10,17 +10,15 @@ import pluginQuery from '@tanstack/eslint-plugin-query';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
 
-export const reactConfig: FlatConfig.Config[] = [
+export const reactConfig: Linter.Config[] = [
+  react.configs.flat.all,
+  reactHooks.configs['recommended-latest'],
+  reactRefresh.configs.vite,
+  importPlugin.flatConfigs.react,
+  ...jsxA11y.flatConfigs.recommended,
   {
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],
-    extends: [
-      ...react.configs.flat.all,
-      ...reactHooks.configs['recommended-latest'],
-      ...reactRefresh.configs.vite,
-      ...importPlugin.flatConfigs.react,
-      ...jsxA11y.flatConfigs.recommended
-    ],
     languageOptions: {
       globals: globals.browser
     },
