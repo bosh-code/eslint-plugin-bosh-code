@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint';
 import nodePlugin from 'eslint-plugin-n';
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['./dist', './sample']),
   {
     files: ['./**/*'],
     extends: [
