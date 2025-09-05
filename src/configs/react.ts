@@ -15,7 +15,7 @@ export const reactConfig: Linter.Config[] = [
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
   importPlugin.flatConfigs.react,
-  ...jsxA11y.flatConfigs.recommended,
+  jsxA11y.flatConfigs.recommended,
   {
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],

@@ -11,7 +11,7 @@ import type { Linter } from 'eslint';
 export const baseConfig: Linter.Config[] = [
   js.configs.recommended,
   eslintPluginUnicorn.configs.recommended,
-  ...pluginPromise.configs['flat/recommended'],
+  pluginPromise.configs['flat/recommended'],
   importPlugin.flatConfigs.recommended,
   jsdoc.configs['flat/recommended'],
   {
