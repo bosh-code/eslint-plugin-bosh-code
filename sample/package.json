@@ -14,13 +14,8 @@
   },
   "packageManager": "pnpm@10.15.0",
   "type": "module",
-  "dependencies": {
-  },
   "devDependencies": {
     "@bosh/eslint-config": "file:../dist",
-    "@types/node": "^24.3.0",
-    "eslint": "^9.34.0",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.2"
+    "eslint": "^9.34.0"
   }
 }
