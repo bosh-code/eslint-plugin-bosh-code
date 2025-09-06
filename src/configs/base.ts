@@ -48,7 +48,7 @@ export const baseConfig: Linter.Config[] = [
       'simple-import-sort/imports': [
         'error',
         {
-          groups: [
+          groups: [ // todo: replace this with a var that gets passed in from the end users' config:
             // External packages
             ['^@?\\w'],
             // Internal packages (null imports)

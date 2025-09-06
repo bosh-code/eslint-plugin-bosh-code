@@ -6,7 +6,7 @@ import { reactConfig } from './configs/react';
 import { nodeConfig } from './configs/node';
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
 
-export interface BoshPlugin {
+export interface BoshConfig {
   configs: {
     base: FlatConfig.Config[];
     ts: FlatConfig.Config[];
@@ -19,7 +19,7 @@ export interface BoshPlugin {
   };
 }
 
-const plugin: BoshPlugin = {
+export const config: BoshConfig = {
   configs: {
     base: baseConfig,
     ts: tsConfig,
@@ -33,19 +33,19 @@ const plugin: BoshPlugin = {
         plugins: {
           bosh: {
             rules: {
-              'invalid-hook-extension': invalidHookExtension,
-            },
-          },
+              'invalid-hook-extension': invalidHookExtension
+            }
+          }
         },
         rules: {
-          'bosh/invalid-hook-extension': 'error',
-        },
-      },
-    ],
+          'bosh/invalid-hook-extension': 'error'
+        }
+      }
+    ]
   },
   rules: {
-    'invalid-hook-extension': invalidHookExtension,
-  },
+    'invalid-hook-extension': invalidHookExtension
+  }
 };
 
-export default plugin;
+export * from './utils/import-sort';

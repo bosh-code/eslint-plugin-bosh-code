@@ -1,11 +1,10 @@
-import { defineConfig } from "tsdown"
+import { defineConfig, type UserConfig } from 'tsdown';
 
 export default defineConfig({
   dts: true,
   inputOptions: {
     input: {
-      index: "src/index.ts",
-      "utils/import-sort": "src/utils/import-sort.ts",
-    },
-  },
-})
+      index: 'src/index.ts'
+    }
+  }
+}) as UserConfig;

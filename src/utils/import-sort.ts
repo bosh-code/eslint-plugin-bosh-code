@@ -3,7 +3,7 @@ export interface ImportSortOptions {
    * First group patterns. Usually packages that are essential or help to define the file.
    * @example ['react', '^@?\\w'] // For react based projects
    */
-  firstGroup?: string[]
+  firstGroup?: string[];
 
   /**
    * Internal/project imports patterns. This is usually aliased packages from the same repo.
@@ -11,7 +11,7 @@ export interface ImportSortOptions {
    * @example ['@/components, @/hooks, @/types']
    * @example ['@org/foo/*']
    */
-  internalGroups?: string[]
+  internalGroups?: string[];
 }
 
 /** Type representing import pattern groups as string arrays */
@@ -28,7 +28,7 @@ type ImportSortRule = (string | { groups: groupOption })[]
 export const createImportSortRule = (
   options: ImportSortOptions = {}
 ): ImportSortRule => {
-  const { firstGroup = ["^@?\\w"], internalGroups = [] } = options
+  const { firstGroup = ['^@?\\w'], internalGroups = [] } = options;
 
   /**
    * Import pattern groups in priority order:
@@ -42,11 +42,11 @@ export const createImportSortRule = (
   const groups: groupOption = [
     firstGroup,
     ...(internalGroups.length > 0 ? [internalGroups] : []),
-    ["^\\u0000"],
-    ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-    ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-    ["^.+\\.s?css$"],
-  ]
+    ['^\\u0000'],
+    ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+    ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^.+\\.svg$'],
+    ['^.+\\.s?css$']
+  ];
 
-  return ["error", { groups }]
-}
+  return ['error', { groups }];
+};
