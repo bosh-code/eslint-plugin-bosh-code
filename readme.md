@@ -2,6 +2,12 @@
 
 Modern ESLint configurations for TypeScript and React projects using ESLint 9 flat config.
 
+## `// TODO:`
+- JS config
+- JS Flow config?
+- Jest/Vitest/testing config?
+- more rules
+
 ## Installation
 
 ```bash
