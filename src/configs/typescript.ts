@@ -3,7 +3,10 @@ import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
 
+import { baseConfig } from './base';
+
 export const tsConfig: Linter.Config[] = [
+  ...baseConfig,
   ...tseslint.configs.recommended,
   importPlugin.flatConfigs.typescript,
   jsdoc.configs['flat/recommended'],
@@ -14,7 +17,7 @@ export const tsConfig: Linter.Config[] = [
       jsdoc
     },
     languageOptions: {
-      ecmaVersion: 2020
+      parser: tseslint.parser
     },
     rules: {
       // TypeScript specific rules

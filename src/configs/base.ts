@@ -22,6 +22,12 @@ export const baseConfig: Linter.Config[] = [
       'no-unary-plus': pluginNoUnaryPlus,
       jsdoc
     },
+    languageOptions: {
+      ecmaVersion: 'latest',
+      parserOptions: {
+        sourceType: 'module'
+      }
+    },
     rules: {
       // Core JavaScript rules
       'no-eval': 'error',

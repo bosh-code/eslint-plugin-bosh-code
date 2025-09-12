@@ -9,8 +9,10 @@ import importPlugin from 'eslint-plugin-import';
 import pluginQuery from '@tanstack/eslint-plugin-query';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
+import { baseConfig } from './base';
 
 export const reactConfig: Linter.Config[] = [
+  ...baseConfig,
   react.configs.flat.all,
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
@@ -20,7 +22,12 @@ export const reactConfig: Linter.Config[] = [
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],
     languageOptions: {
-      globals: globals.browser
+      globals: globals.browser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
     },
     plugins: {
       '@tanstack/query': pluginQuery,
