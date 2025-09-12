@@ -17,8 +17,8 @@ export default defineConfig([
       nodePlugin.configs["flat/all"],
     ],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser
+      ecmaVersion: 'latest',
+      globals: globals.node
     },
     rules: {
       "import/extensions": "off",
