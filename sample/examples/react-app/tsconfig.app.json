@@ -7,6 +7,13 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    /* Project structure */
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@/components/*": ["components/*"],
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
