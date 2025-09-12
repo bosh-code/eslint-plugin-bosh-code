@@ -1,5 +1,5 @@
 {
-  "name": "@bosh/eslint-config",
+  "name": "@bosh/eslint-plugin",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -18,7 +18,7 @@
   "engines": {
     "node": ">=24.6.0"
   },
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "type": "module",
   "files": [
     "dist",
