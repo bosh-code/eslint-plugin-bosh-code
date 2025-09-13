@@ -7,7 +7,7 @@ import { baseConfig } from './base';
 
 export const tsConfig: Linter.Config[] = [
   ...baseConfig,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.strictTypeChecked,
   importPlugin.flatConfigs.typescript,
   jsdoc.configs['flat/recommended'],
   {
