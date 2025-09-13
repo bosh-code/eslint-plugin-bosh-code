@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=24.6.0"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.16.0",
   "type": "module",
   "devDependencies": {
     "@bosh/eslint-config": "file:../dist",
