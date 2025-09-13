@@ -2,10 +2,12 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { type JSX } from 'react';
 import './App.css'
-import { Button } from '@/components/button.tsx';
+import { Button } from '@/components';
+import { useCorrectHook } from '@/hooks';
 
 
 function App(): JSX.Element {
+  useCorrectHook();
 
   return (
     <>
