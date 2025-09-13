@@ -8,10 +8,9 @@
     "skipLibCheck": true,
 
     /* Project structure */
-    "rootDir": "src",
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
+      "@/*": ["./src/*"],
     },
 
     /* Bundler mode */
