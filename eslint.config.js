@@ -6,10 +6,9 @@ import tseslint from 'typescript-eslint';
 import nodePlugin from 'eslint-plugin-n';
 
 export default defineConfig([
-  globalIgnores(['./dist']),
+  globalIgnores(['./dist', './sample']),
   {
     files: ['./**/*'],
-    ignores: ['./sample'],
     extends: [
       eslintPlugin.configs.all,
       js.configs.recommended,
