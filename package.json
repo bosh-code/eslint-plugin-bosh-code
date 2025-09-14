@@ -1,47 +1,45 @@
 {
-  "name": "@bosh/eslint-plugin",
+  "name": "@bosh-code/eslint-plugin",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Ryan Bosher's ESLint plugin.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bosh-code/eslint-plugin-bosh.git"
+    "url": "git+https://github.com/bosh-code/eslint-plugin-bosh-code.git"
   },
   "scripts": {
     "build": "tsdown",
-    "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Ryan Bosher",
+  "license": "MIT",
   "engines": {
-    "node": ">=24.6.0"
+    "node": ">=24.0.0"
   },
   "packageManager": "pnpm@10.16.1",
   "type": "module",
   "files": [
     "dist",
-    "!*.tsbuildinfo",
     "package.json",
     "README.md",
     "LICENSE"
   ],
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./utils": {
-      "types": "./dist/utils/index.d.ts",
-      "default": "./dist/utils/index.js"
-    },
     "./package.json": "./package.json"
   },
   "peerDependencies": {
-    "eslint": "^9.34.0",
-    "typescript": "^5.9.2"
+    "eslint": "^9.35.0"
   },
   "dependencies": {
     "@eslint/js": "^9.35.0",
