@@ -17,7 +17,10 @@ export const tsConfig: Linter.Config[] = [
       jsdoc
     },
     languageOptions: {
-      parser: tseslint.parser
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: true,
+      }
     },
     rules: {
       // TypeScript specific rules

@@ -25,6 +25,7 @@ export const baseConfig: Linter.Config[] = [
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
+        ecmaVersion: 'latest',
         sourceType: 'module'
       }
     },
