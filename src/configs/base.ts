@@ -1,15 +1,21 @@
 import js from '@eslint/js';
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
-import pluginPromise from 'eslint-plugin-promise';
-import pluginNoUnaryPlus from 'eslint-plugin-no-unary-plus';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import jsdoc from 'eslint-plugin-jsdoc';
-import type { Linter } from 'eslint';
+import pluginNoUnaryPlus from 'eslint-plugin-no-unary-plus';
+import pluginPromise from 'eslint-plugin-promise';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
-export const baseConfig: Linter.Config[] = [
+import type { Config } from '../types';
+
+/**
+ * The base shared flat config for the plugin.
+ * Extended by all other configs. Rules defined here should be applied to all projects.
+ * @type {Config}
+ */
+export const baseConfig: Config = [
   js.configs.recommended,
   eslintPluginUnicorn.configs.recommended,
   pluginPromise.configs['flat/recommended'],
@@ -62,15 +68,15 @@ export const baseConfig: Linter.Config[] = [
         {
           groups: [
             // External packages
-            ['^@?\\w'],
+            [String.raw`^@?\w`],
             // Internal packages (null imports)
-            ['^\\u0000'],
+            [String.raw`^\u0000`],
             // Parent imports
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
             // Other relative imports
-            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`],
             // Style imports
-            ['^.+\\.s?css$']
+            [String.raw`^.+\.s?css$`]
           ]
         }
       ],

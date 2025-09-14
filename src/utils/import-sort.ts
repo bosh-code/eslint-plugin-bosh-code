@@ -22,19 +22,19 @@ type ImportSortRule = (string | { groups: groupOption })[]
 
 /**
  * Creates an ESLint import/order rule configuration with customizable grouping
- * @param options - Configuration options for import sorting
- * @returns ESLint rule configuration for import/order
+ * @param {ImportSortOptions} options - Configuration options for import sorting
+ * @returns {ImportSortRule} ESLint rule configuration for import/order
  */
 export const createImportSortRule = (
   options: ImportSortOptions = {}
 ): ImportSortRule => {
-  const { firstGroup = ['^@?\\w'], internalGroups = [] } = options;
+  const { firstGroup = [String.raw`^@?\w`], internalGroups = [] } = options;
 
   /**
    * Import pattern groups in priority order:
    * 1. First group - Highest priority imports (configurable)
    * 2. Internal groups - Project-specific modules (when specified)
-   * 3. Side-effect imports - Virtual module boundaries
+   * 3. Side effect imports - Virtual module boundaries
    * 4. Parent imports - Imports from parent directories
    * 5. Current directory imports - Local imports (deeper paths first)
    * 6. Style imports - CSS/SCSS files
@@ -42,10 +42,10 @@ export const createImportSortRule = (
   const groups: groupOption = [
     firstGroup,
     ...(internalGroups.length > 0 ? [internalGroups] : []),
-    ['^\\u0000'],
-    ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-    ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$', '^.+\\.svg$'],
-    ['^.+\\.s?css$']
+    [String.raw`^\u0000`],
+    [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
+    [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`, String.raw`^.+\.svg$`],
+    [String.raw`^.+\.s?css$`]
   ];
 
   return ['error', { groups }];

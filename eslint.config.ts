@@ -1,15 +1,15 @@
 import js from '@eslint/js';
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { type Linter } from 'eslint';
+import { defineConfig } from 'eslint/config';
 import eslintPlugin from 'eslint-plugin-eslint-plugin';
-import tseslint from 'typescript-eslint';
 import nodePlugin from 'eslint-plugin-n';
+import tseslint from 'typescript-eslint';
+
 import { config as bosh } from './src';
-import { Linter } from 'eslint';
 
 export default defineConfig([
-  globalIgnores(['./dist', './sample']),
   {
-    files: ['./**/*'],
+    files: ['./src/**/*'],
     extends: [
       eslintPlugin.configs.all,
       js.configs.recommended,

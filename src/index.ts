@@ -1,25 +1,43 @@
-import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint';
-import type { ESLintUtils } from '@typescript-eslint/utils';
 import { baseConfig } from './configs/base';
-import { tsConfig } from './configs/typescript';
-import { reactConfig } from './configs/react';
 import { nodeConfig } from './configs/node';
+import { reactConfig } from './configs/react';
+import { tsConfig } from './configs/typescript';
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
+import type { Plugin } from './types';
 
-interface PluginConfig {
-  configs: {
-    base: FlatConfig.Config[];
-    ts: FlatConfig.Config[];
-    react: FlatConfig.Config[];
-    node: FlatConfig.Config[];
-    recommended: FlatConfig.Config[];
-  };
-  rules: {
-    'invalid-hook-extension': ESLintUtils.RuleModule<string, readonly unknown[], unknown, ESLintUtils.RuleListener>;
-  };
-}
-
-export const config: PluginConfig = {
+/**
+ * Main plugin object.
+ * @example Using predefined config
+ * // eslint.config.js
+ * import { config as bosh } from "@bosh-code/eslint-plugin"
+ *
+ * export default [
+ *   ...bosh.configs.recommended
+ * ]
+ * @example Using custom rules and settings
+ * // eslint.config.js
+ * import { config as bosh } from "@bosh-code/eslint-plugin"
+ * import { createImportSortRule } from "eslint-plugin-bosh/utils"
+ *
+ * export default [
+ *   ...bosh.configs.react,
+ *   {
+ *     rules: {
+ *       "bosh/invalid-hook-extension": "error",
+ *       "simple-import-sort/imports": createImportSortRule({
+ *         firstGroup: ["react", "^@?\\w"],
+ *         internalGroups: [
+ *           "^(@/components)(/.*|$)",
+ *           "^(@/hooks)(/.*|$)",
+ *           "^(@/lib)(/.*|$)",
+ *         ],
+ *       }),
+ *     },
+ *   },
+ * ]
+ * @type {Plugin}
+ */
+export const config: Plugin = {
   configs: {
     base: baseConfig,
     ts: tsConfig,
