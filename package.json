@@ -46,11 +46,7 @@
   "publishConfig": {
     "tag": "latest",
     "registry": "npm",
-    "access": "public",
-    "exports": {
-      ".": "./dist/index.js",
-      "./package.json": "./package.json"
-    }
+    "access": "public"
   },
   "peerDependencies": {
     "eslint": "^9.35.0"
