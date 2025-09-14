@@ -1,37 +1,32 @@
-# eslint-plugin-bosh
+# @bosh-code/eslint-plugin
 
 Modern ESLint configurations for TypeScript and React projects using ESLint 9 flat config.
-
-## `// TODO:`
-- JS config
-- JS Flow config?
-- Jest/Vitest/testing config?
-- more rules
 
 ## Installation
 
 ```bash
-npm install eslint-plugin-bosh --save-dev
+pnpm add -D @bosh-code/eslint-plugin
 ```
 
 ## Usage
 
 ```js
 // eslint.config.js
-import bosh from "eslint-plugin-bosh"
+import { config as bosh } from "@bosh-code/eslint-plugin"
 
 export default [
-  ...bosh.configs.base, // Core JS/TS rules
-  ...bosh.configs.ts, // TypeScript rules
-  ...bosh.configs.react, // React + JSX rules
-  ...bosh.configs.node, // Node.js globals
+  ...bosh.configs.base,        // Core JS/TS rules
+  ...bosh.configs.ts,          // TypeScript rules
+  ...bosh.configs.react,       // React + JSX rules
+  ...bosh.configs.node,        // Node.js globals
+  ...bosh.configs.recommended, // base, ts and 
 ]
 ```
 
 ### Custom Import Sorting
 
 ```js
-import bosh from "eslint-plugin-bosh"
+import { config as bosh } from "@bosh-code/eslint-plugin"
 import { createImportSortRule } from "eslint-plugin-bosh/utils"
 
 export default [
@@ -60,6 +55,7 @@ export default [
 - `ts` - TypeScript-specific rules
 - `react` - React, JSX, accessibility, performance rules
 - `node` - Node.js environment globals
+- `recommended` - Combination of the **base** and **ts** configs
 
 ## `// TODO:`
 
@@ -69,3 +65,6 @@ export default [
 - Prettier, in this repo and in eslint config.
 - JSON linting
 - YAML linting
+- JS config
+- JS Flow config?
+- more rules
