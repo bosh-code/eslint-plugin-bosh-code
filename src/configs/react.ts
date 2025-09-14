@@ -1,17 +1,23 @@
-import type { Linter } from 'eslint';
-import globals from 'globals';
+import pluginQuery from '@tanstack/eslint-plugin-query';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import reactPerf from 'eslint-plugin-react-perf';
-import importPlugin from 'eslint-plugin-import';
-import pluginQuery from '@tanstack/eslint-plugin-query';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
+
 import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
+import type { Config } from '../types';
+
 import { baseConfig } from './base';
 
-export const reactConfig: Linter.Config[] = [
+/**
+ * React specific flat shared config.
+ * @type {Config}
+ */
+export const reactConfig: Config = [
   ...baseConfig,
   react.configs.flat.all,
   reactHooks.configs['recommended-latest'],
@@ -102,15 +108,15 @@ export const reactConfig: Linter.Config[] = [
         {
           groups: [
             // React first, then other external packages
-            ['^react', '^@?\\w'],
+            ['^react', String.raw`^@?\w`],
             // Internal packages (null imports)
-            ['^\\u0000'],
+            [String.raw`^\u0000`],
             // Parent imports
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
             // Other relative imports
-            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`],
             // Style imports
-            ['^.+\\.s?css$']
+            [String.raw`^.+\.s?css$`]
           ]
         }
       ]

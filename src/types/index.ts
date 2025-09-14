@@ -1,28 +1,19 @@
-export interface BoshConfigOptions {
-  /** Options for import sorting */
-  importSort?: {
-    firstGroup?: string[];
-    internalGroups?: string[];
-  };
-}
-export interface BoshEslintOptions {
-  /**
-   * Custom import groups for simple-import-sort
-   * First group is for external packages (like React)
-   * Second group is for project-specific aliases
-   */
-  importGroups?: {
-    external?: string[];
-    internal?: string[];
-  };
+import type { ESLint, Linter } from 'eslint';
 
-  /**
-   * Custom file patterns to ignore
-   */
-  ignores?: string[];
+/**
+ * An array of ESLint configuration objects.
+ */
+export type Config = Linter.Config[]
 
-  /**
-   * React version (defaults to '19')
-   */
-  reactVersion?: string;
-}
+/**
+ * Shape of the @bosh-code/eslint-plugin
+ */
+export type Plugin = Readonly<ESLint.Plugin & {
+  configs: {
+    base: Config;
+    ts: Config;
+    react: Config;
+    node: Config;
+    recommended: Config;
+  }
+}>

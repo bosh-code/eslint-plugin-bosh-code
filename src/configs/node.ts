@@ -1,9 +1,15 @@
-import globals from 'globals';
-import type { Linter } from 'eslint';
-import { baseConfig } from './base';
 import nodePlugin from 'eslint-plugin-n';
+import globals from 'globals';
 
-export const nodeConfig: Linter.Config[] = [
+import type { Config } from '../types';
+
+import { baseConfig } from './base';
+
+/**
+ * Node.js specific flat shared config.
+ * @type {Config}
+ */
+export const nodeConfig: Config = [
   ...baseConfig,
   nodePlugin.configs['flat/recommended-module'],
   {
