@@ -5,12 +5,12 @@ import nodePlugin from 'eslint-plugin-n';
 
 export const nodeConfig: Linter.Config[] = [
   ...baseConfig,
-  nodePlugin.configs['flat/recommended-script'],
+  nodePlugin.configs['flat/recommended-module'],
   {
     name: 'bosh/node',
     languageOptions: {
       globals: {
-        ...globals.node
+        ...globals.nodeBuiltin
       }
     },
     rules: {

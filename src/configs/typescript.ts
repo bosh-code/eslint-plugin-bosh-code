@@ -19,7 +19,7 @@ export const tsConfig: Linter.Config[] = [
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        projectService: true,
+        projectService: true
       }
     },
     rules: {

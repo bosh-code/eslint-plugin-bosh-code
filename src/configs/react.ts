@@ -22,7 +22,9 @@ export const reactConfig: Linter.Config[] = [
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser
+      },
       parserOptions: {
         ecmaFeatures: {
           jsx: true

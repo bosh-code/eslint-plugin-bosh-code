@@ -7,6 +7,7 @@ import pluginNoUnaryPlus from 'eslint-plugin-no-unary-plus';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import jsdoc from 'eslint-plugin-jsdoc';
 import type { Linter } from 'eslint';
+import globals from 'globals';
 
 export const baseConfig: Linter.Config[] = [
   js.configs.recommended,
@@ -25,6 +26,10 @@ export const baseConfig: Linter.Config[] = [
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
+        globals: {
+          ...globals.es2026,
+          ...globals['shared-node-browser']
+        },
         ecmaVersion: 'latest',
         sourceType: 'module'
       }
@@ -50,12 +55,12 @@ export const baseConfig: Linter.Config[] = [
       // Import rules
       'import/no-unresolved': 'off', // Let TypeScript handle this
 
-      // Simple import sort with basic configuration
+      // Simple import sort with basic grouping. Can be overridden in project eslint.config.js
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': [
         'error',
         {
-          groups: [ // todo: replace this with a var that gets passed in from the end users' config:
+          groups: [
             // External packages
             ['^@?\\w'],
             // Internal packages (null imports)
