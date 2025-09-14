@@ -38,6 +38,15 @@
     },
     "./package.json": "./package.json"
   },
+  "publishConfig": {
+    "tag": "latest",
+    "registry": "npm",
+    "access": "public",
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
   "peerDependencies": {
     "eslint": "^9.35.0"
   },
