@@ -9,6 +9,7 @@ import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
 import type { Config } from '../types';
+import { createImportSortRule } from '../utils';
 
 /**
  * The base shared flat config for the plugin.
@@ -61,25 +62,9 @@ export const baseConfig: Config = [
       // Import rules
       'import/no-unresolved': 'off', // Let TypeScript handle this
 
-      // Simple import sort with basic grouping. Can be overridden in project eslint.config.js
+      // Simple import sort with default grouping. Can be overridden in project eslint.config.js
       'simple-import-sort/exports': 'error',
-      'simple-import-sort/imports': [
-        'error',
-        {
-          groups: [
-            // External packages
-            [String.raw`^@?\w`],
-            // Internal packages (null imports)
-            [String.raw`^\u0000`],
-            // Parent imports
-            [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
-            // Other relative imports
-            [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`],
-            // Style imports
-            [String.raw`^.+\.s?css$`]
-          ]
-        }
-      ],
+      'simple-import-sort/imports': createImportSortRule(),
 
       // Unicorn overrides
       'unicorn/import-style': 'off',

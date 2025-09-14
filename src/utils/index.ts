@@ -1,1 +1,1 @@
-export { createImportSortRule } from './import-sort';
+export * from './import-sort';

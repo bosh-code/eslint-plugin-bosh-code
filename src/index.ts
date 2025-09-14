@@ -52,5 +52,3 @@ export const config: Plugin = {
     'invalid-hook-extension': invalidHookExtension
   }
 };
-
-export { createImportSortRule } from './utils';

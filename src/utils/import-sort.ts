@@ -1,4 +1,16 @@
+import { Linter } from 'eslint';
+
+/**
+ * Options for configuring import sorting rules
+ */
 export interface ImportSortOptions {
+
+  /**
+   * Rule severity level: 0 | 1 | 2 | "off" | "warn" | "error". Default is "error".
+   * @default 'error'
+   */
+  level?: Linter.RuleSeverity;
+
   /**
    * First group patterns. Usually packages that are essential or help to define the file.
    * @example ['react', '^@?\\w'] // For react based projects
@@ -18,7 +30,18 @@ export interface ImportSortOptions {
 type groupOption = string[] | string[][]
 
 /** Type representing the complete ESLint import/order rule configuration */
-type ImportSortRule = (string | { groups: groupOption })[]
+type ImportSortRule = [Linter.RuleSeverity, ...any[]]
+
+export const EXTERNAL_IMPORTS_GROUP: string[] = [String.raw`^@?\w`];
+export const SIDE_EFFECT_IMPORTS_GROUP: string[] = [String.raw`^\u0000`];
+export const PARENT_IMPORTS_GROUP: string[] = [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`];
+export const CURRENT_DIR_IMPORTS_GROUP: string[] = [
+  String.raw`^\./(?=.*/)(?!/?$)`,
+  String.raw`^\.(?!/?$)`,
+  String.raw`^\./?$`,
+  String.raw`^.+\.svg$`
+];
+export const STYLE_IMPORTS_GROUP: string[] = [String.raw`^.+\.s?css$`];
 
 /**
  * Creates an ESLint import/order rule configuration with customizable grouping
@@ -28,7 +51,7 @@ type ImportSortRule = (string | { groups: groupOption })[]
 export const createImportSortRule = (
   options: ImportSortOptions = {}
 ): ImportSortRule => {
-  const { firstGroup = [String.raw`^@?\w`], internalGroups = [] } = options;
+  const { firstGroup = EXTERNAL_IMPORTS_GROUP, internalGroups = [], level = 'error' } = options;
 
   /**
    * Import pattern groups in priority order:
@@ -42,11 +65,11 @@ export const createImportSortRule = (
   const groups: groupOption = [
     firstGroup,
     ...(internalGroups.length > 0 ? [internalGroups] : []),
-    [String.raw`^\u0000`],
-    [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
-    [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`, String.raw`^.+\.svg$`],
-    [String.raw`^.+\.s?css$`]
+    SIDE_EFFECT_IMPORTS_GROUP,
+    PARENT_IMPORTS_GROUP,
+    CURRENT_DIR_IMPORTS_GROUP,
+    STYLE_IMPORTS_GROUP
   ];
 
-  return ['error', { groups }];
+  return [level, { groups }];
 };

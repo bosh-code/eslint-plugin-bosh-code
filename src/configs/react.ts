@@ -12,6 +12,7 @@ import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
 import type { Config } from '../types';
 
 import { baseConfig } from './base';
+import { EXTERNAL_IMPORTS_GROUP, createImportSortRule } from '../utils';
 
 /**
  * React specific flat shared config.
@@ -103,23 +104,9 @@ export const reactConfig: Config = [
       'jsx-a11y/no-static-element-interactions': 'warn',
 
       // Import sort for React projects
-      'simple-import-sort/imports': [
-        'error',
-        {
-          groups: [
-            // React first, then other external packages
-            ['^react', String.raw`^@?\w`],
-            // Internal packages (null imports)
-            [String.raw`^\u0000`],
-            // Parent imports
-            [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
-            // Other relative imports
-            [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\./?$`],
-            // Style imports
-            [String.raw`^.+\.s?css$`]
-          ]
-        }
-      ]
+      'simple-import-sort/imports': createImportSortRule({
+        firstGroup: ['react', ...EXTERNAL_IMPORTS_GROUP]
+      })
     }
   }
 ];

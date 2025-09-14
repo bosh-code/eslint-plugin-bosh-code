@@ -1,5 +1,7 @@
-import { config as bosh, createImportSortRule } from '@bosh/eslint-config';
+import { config as bosh } from '@bosh-code/eslint-plugin';
+import { createImportSortRule, EXTERNAL_IMPORTS_GROUP } from '@bosh-code/eslint-plugin/utils';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import type { Linter } from 'eslint';
 
 export default defineConfig([
     globalIgnores(['./dist']),
@@ -22,7 +24,7 @@ export default defineConfig([
       extends: [bosh.configs.react],
       rules: {
         'simple-import-sort/imports': createImportSortRule({
-          firstGroup: ['react', String.raw`^@?\w`],
+          firstGroup: ['react', ...EXTERNAL_IMPORTS_GROUP],
           internalGroups: [
             '^(@/components)(/.*|$)',
             '^(@/hooks)(/.*|$)'
@@ -38,7 +40,7 @@ export default defineConfig([
 
       rules: {
         'simple-import-sort/imports': createImportSortRule({
-          firstGroup: ['express', String.raw`^@?\w`],
+          firstGroup: ['express', ...EXTERNAL_IMPORTS_GROUP],
           internalGroups: [
             '^(@src)(/.*|$)'
           ]
@@ -46,4 +48,4 @@ export default defineConfig([
       }
     }
   ]
-);
+) as Linter.Config[];
