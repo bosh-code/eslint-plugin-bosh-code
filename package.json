@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/bosh-code/eslint-plugin-bosh.git"
+    "url": "git+https://github.com/bosh-code/eslint-plugin-bosh.git"
   },
   "scripts": {
     "build": "tsdown",
