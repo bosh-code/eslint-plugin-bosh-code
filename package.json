@@ -2,6 +2,7 @@
   "name": "@bosh-code/eslint-plugin",
   "version": "1.0.0",
   "description": "Ryan Bosher's ESLint plugin.",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bosh-code/eslint-plugin-bosh-code.git"
@@ -42,11 +43,6 @@
       "default": "./dist/utils.js"
     },
     "./package.json": "./package.json"
-  },
-  "publishConfig": {
-    "tag": "latest",
-    "registry": "npm",
-    "access": "public"
   },
   "peerDependencies": {
     "eslint": "^9.35.0"
