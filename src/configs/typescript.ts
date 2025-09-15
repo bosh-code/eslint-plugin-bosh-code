@@ -1,5 +1,4 @@
 import type { Linter } from 'eslint';
-import importPlugin from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
 import tseslint from 'typescript-eslint';
 
@@ -14,7 +13,6 @@ import { baseConfig } from './base';
 export const tsConfig: Config = [
   ...baseConfig,
   ...tseslint.configs.strictTypeChecked,
-  importPlugin.flatConfigs.typescript,
   jsdoc.configs['flat/recommended'] as Linter.Config,
   {
     name: 'bosh/typescript',
@@ -33,8 +31,10 @@ export const tsConfig: Config = [
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
-      // JSDoc rules
-      'jsdoc/require-jsdoc': 'off'
+
+      // Base ESLint rules overridden by typescript-eslint
+      'no-undef': 'off',
+      'no-unused-vars': 'off'
     }
   }
 ];
