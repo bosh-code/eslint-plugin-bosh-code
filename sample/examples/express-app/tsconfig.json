@@ -7,6 +7,7 @@
       "@src/*": ["src/*"]
     },
     "useUnknownInCatchVariables": false,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.dev.tsbuildinfo",
     "types": ["vitest/globals"],
   },
   "ts-node": {

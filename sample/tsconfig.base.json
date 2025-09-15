@@ -1,8 +1,11 @@
 {
   "compileOnSave": false,
+  "files": [],
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
     "declaration": false,
     "emitDecoratorMetadata": true,
+    "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,12 +17,17 @@
     ],
     "module": "ESNext",
     "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "removeComments": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "ESNext",
+    "useDefineForClassFields": true,
     "useUnknownInCatchVariables": false,
   }
 }

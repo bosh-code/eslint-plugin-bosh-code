@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "temp",
     "sourceMap": false,
-    "removeComments": true
+    "removeComments": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.prod.tsbuildinfo"
   },
   "include": [
     "src/**/*.ts",
