@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "prepublishOnly": "run-s build lint",
+    "safe-publish-latest": "safe-publish-latest",
+    "prepublishOnly": "run-s safe-publish-latest build lint",
     "lint": "eslint ."
   },
   "keywords": [
@@ -66,6 +67,7 @@
     "eslint-plugin-unicorn": "^61.0.2",
     "globals": "^16.4.0",
     "npm-run-all": "^4.1.5",
+    "safe-publish-latest": "^2.0.0",
     "typescript-eslint": "^8.43.0"
   },
   "devDependencies": {
