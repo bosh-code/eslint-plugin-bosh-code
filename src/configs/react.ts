@@ -24,7 +24,7 @@ export const reactConfig: Config = [
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
   importPlugin.flatConfigs.react,
-  jsxA11y.flatConfigs.recommended,
+  jsxA11y.flatConfigs.strict,
   {
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],
