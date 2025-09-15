@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import { globalIgnores } from 'eslint/config';
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
@@ -12,6 +13,18 @@ import type { Config } from '../types';
 import { createImportSortRule } from '../utils';
 
 /**
+ * List of common ESLint config file names to be globally ignored.
+ */
+const eslintConfigFileNames = [
+  'eslint.config.js',
+  'eslint.config.cjs',
+  'eslint.config.mjs',
+  'eslint.config.ts',
+  'eslint.config.cts',
+  'eslint.config.mts'
+];
+
+/**
  * The base shared flat config for the plugin.
  * Extended by all other configs. Rules defined here should be applied to all projects.
  * @type {Config}
@@ -22,6 +35,8 @@ export const baseConfig: Config = [
   pluginPromise.configs['flat/recommended'],
   importPlugin.flatConfigs.recommended,
   jsdoc.configs['flat/recommended'],
+  globalIgnores([...eslintConfigFileNames], 'ESLint config files'),
+  globalIgnores(['dist'], 'Ignore build output'),
   {
     name: 'bosh/base',
     plugins: {
@@ -57,12 +72,14 @@ export const baseConfig: Config = [
       'eslint-comments/require-description': 'error',
 
       // JSDoc rules
-      'jsdoc/require-jsdoc': 'off',
+      'jsdoc/require-jsdoc': 'error',
 
       // Import rules
-      'import/no-unresolved': 'off', // Let TypeScript handle this
+      // Let TypeScript handle this
+      'import/no-unresolved': 'off',
 
-      // Simple import sort with default grouping. Can be overridden in project eslint.config.js
+      // Simple import sort with default grouping.
+      // Can be overridden in project eslint.config.js
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': createImportSortRule(),
 
@@ -73,7 +90,7 @@ export const baseConfig: Config = [
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prevent-abbreviations': 'off',
 
-      // Custom rules
+      // I just don't like it
       'no-unary-plus/no-unary-plus': 'error'
     }
   }
