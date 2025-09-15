@@ -2,6 +2,14 @@
   "name": "@bosh-code/eslint-plugin",
   "version": "0.0.1",
   "description": "Ryan Bosher's ESLint plugin.",
+  "author": "Ryan Bosher <ryan@bosher.co.nz>",
+  "contributors": [
+    {
+      "name": "Ryan Bosher",
+      "email": "ryan@bosher.co.nz",
+      "url": "https://bosher.co.nz"
+    }
+  ],
   "private": false,
   "repository": {
     "type": "git",
@@ -17,7 +25,6 @@
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "Ryan Bosher",
   "license": "MIT",
   "engines": {
     "node": ">=24.0.0"
