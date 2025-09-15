@@ -10,9 +10,9 @@ import globals from 'globals';
 
 import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
 import type { Config } from '../types';
+import { createImportSortRule,EXTERNAL_IMPORTS_GROUP } from '../utils';
 
 import { baseConfig } from './base';
-import { EXTERNAL_IMPORTS_GROUP, createImportSortRule } from '../utils';
 
 /**
  * React specific flat shared config.

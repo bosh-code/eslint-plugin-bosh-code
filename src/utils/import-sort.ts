@@ -1,4 +1,4 @@
-import { Linter } from 'eslint';
+import type { Linter } from 'eslint';
 
 /**
  * Options for configuring import sorting rules
@@ -30,7 +30,7 @@ export interface ImportSortOptions {
 type groupOption = string[] | string[][]
 
 /** Type representing the complete ESLint import/order rule configuration */
-type ImportSortRule = [Linter.RuleSeverity, ...any[]]
+type ImportSortRule = [Linter.RuleSeverity, { groups: string[][]; }]
 
 export const EXTERNAL_IMPORTS_GROUP: string[] = [String.raw`^@?\w`];
 export const SIDE_EFFECT_IMPORTS_GROUP: string[] = [String.raw`^\u0000`];

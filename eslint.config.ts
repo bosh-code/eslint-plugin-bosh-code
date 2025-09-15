@@ -9,7 +9,6 @@ import { config as bosh } from './src';
 
 export default defineConfig([
   {
-    files: ['./src/**/*'],
     extends: [
       eslintPlugin.configs.all,
       js.configs.recommended,
@@ -18,6 +17,7 @@ export default defineConfig([
       bosh.configs.recommended,
       bosh.configs.node
     ],
+    files: ['./src/**/*'],
     languageOptions: {
       ecmaVersion: 'latest',
       parser: tseslint.parser,
@@ -30,9 +30,10 @@ export default defineConfig([
     },
     rules: {
       'import/extensions': 'off',
-      'ts/no-unnecessary-condition': 'off',
+      'n/file-extension-in-import': 'off',
       'n/no-missing-import': 'off',
-      'n/file-extension-in-import': 'off'
+      'no-restricted-syntax': 'off',
+      'ts/no-unnecessary-condition': 'off'
     }
   }
 ]) as Linter.Config[];
