@@ -1,6 +1,6 @@
 {
   "name": "@bosh-code/eslint-plugin",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Ryan Bosher's ESLint plugin.",
   "author": "Ryan Bosher <ryan@bosher.co.nz>",
   "contributors": [
