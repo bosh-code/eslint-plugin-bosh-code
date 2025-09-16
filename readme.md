@@ -1,6 +1,8 @@
 # @bosh-code/eslint-plugin
 
-Modern ESLint configurations for TypeScript and React projects using ESLint 9 flat config.
+This is my personal *very* opinionated ESLint configuration. Use it if you would like, but it's definitely not for everyone.
+The main reason I made this was so that I didn't have to keep setting up ESLint
+for every side project.
 
 ## Installation
 
@@ -15,11 +17,11 @@ pnpm add -D @bosh-code/eslint-plugin
 import { config as bosh } from "@bosh-code/eslint-plugin"
 
 export default [
-  ...bosh.configs.base,        // Core JS/TS rules
+  ...bosh.configs.base,        // Core JS/TS rules, general shared configs, and language setup
   ...bosh.configs.ts,          // TypeScript rules
-  ...bosh.configs.react,       // React + JSX rules
-  ...bosh.configs.node,        // Node.js globals
-  ...bosh.configs.recommended, // base, ts and 
+  ...bosh.configs.react,       // React/Preact + .[j|t]sx file rules
+  ...bosh.configs.node,        // Node.js Rules
+  ...bosh.configs.recommended, // Combination of configs.base and configs.ts
 ]
 ```
 

@@ -2,12 +2,12 @@ import type { Linter } from 'eslint';
 import jsdoc from 'eslint-plugin-jsdoc';
 import tseslint from 'typescript-eslint';
 
-import type { Config } from '../types';
+import type { Config } from '../types/plugin';
 
 import { baseConfig } from './base';
 
 /**
- * Typescript specific flat shared config.
+ * TypeScript specific flat shared config.
  * @type {Config}
  */
 export const tsConfig: Config = [
@@ -29,6 +29,7 @@ export const tsConfig: Config = [
     rules: {
       // TypeScript specific rules
       '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-unnecessary-condition': "error",
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',
 

@@ -10,7 +10,7 @@ import { config as bosh } from './src';
 export default defineConfig([
   {
     extends: [
-      eslintPlugin.configs.all,
+      eslintPlugin.configs['all-type-checked'],
       js.configs.recommended,
       tseslint.configs.recommended,
       nodePlugin.configs['flat/all'],
@@ -27,13 +27,6 @@ export default defineConfig([
         ecmaVersion: 'latest',
         project: ['./tsconfig.json']
       }
-    },
-    rules: {
-      'import/extensions': 'off',
-      'n/file-extension-in-import': 'off',
-      'n/no-missing-import': 'off',
-      'no-restricted-syntax': 'off',
-      'ts/no-unnecessary-condition': 'off'
     }
   }
 ]) as Linter.Config[];

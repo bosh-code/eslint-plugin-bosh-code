@@ -1,5 +1,5 @@
-import js from '@eslint/js';
 import { globalIgnores } from 'eslint/config';
+import eslintConfigPrettierFlat from 'eslint-config-prettier/flat';
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
@@ -9,8 +9,10 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 
-import type { Config } from '../types';
-import { createImportSortRule } from '../utils';
+import js from '@eslint/js';
+
+import type { Config } from '../types/plugin';
+import { createImportSortRule } from '../utils/import-sort';
 
 /**
  * List of common ESLint config file names to be globally ignored.
@@ -31,6 +33,7 @@ const eslintConfigFileNames = [
  */
 export const baseConfig: Config = [
   js.configs.recommended,
+  eslintConfigPrettierFlat,
   eslintPluginUnicorn.configs.recommended,
   pluginPromise.configs['flat/recommended'],
   importPlugin.flatConfigs.recommended,
@@ -76,6 +79,7 @@ export const baseConfig: Config = [
 
       // Import rules
       // Let TypeScript handle this
+      'import/extensions': 'off',
       'import/no-unresolved': 'off',
 
       // Simple import sort with default grouping.

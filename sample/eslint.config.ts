@@ -4,7 +4,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import type { Linter } from 'eslint';
 
 export default defineConfig([
-    globalIgnores(['./dist']),
+    globalIgnores(['dist/']),
 
     // Base Config
     {
