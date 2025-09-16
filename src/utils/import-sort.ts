@@ -44,6 +44,21 @@ export const CURRENT_DIR_IMPORTS_GROUP: string[] = [
 export const STYLE_IMPORTS_GROUP: string[] = [String.raw`^.+\.s?css$`];
 
 /**
+ * Default internal import patterns for common TypeScript path mapping aliases
+ * Covers patterns like:
+ * - @/* (maps to ./src/*)
+ * - @someFolder/* (maps to ./src/someFolder/*)
+ * - #/* (maps to ./src/*)
+ * - #someFolder/* (maps to ./src/someFolder/*)
+ */
+export const DEFAULT_INTERNAL_GROUPS: string[] = [
+  String.raw`^@/`,    // @/* patterns
+  String.raw`^@\w+/`, // @someFolder/* patterns
+  String.raw`^#/`,    // #/* patterns
+  String.raw`^#\w+/`  // #someFolder/* patterns
+];
+
+/**
  * Creates an ESLint import/order rule configuration with customizable grouping
  * @param {ImportSortOptions} options - Configuration options for import sorting
  * @returns {ImportSortRule} ESLint rule configuration for import/order
@@ -51,7 +66,7 @@ export const STYLE_IMPORTS_GROUP: string[] = [String.raw`^.+\.s?css$`];
 export const createImportSortRule = (
   options: ImportSortOptions = {}
 ): ImportSortRule => {
-  const { firstGroup = EXTERNAL_IMPORTS_GROUP, internalGroups = [], level = 'error' } = options;
+  const { firstGroup = EXTERNAL_IMPORTS_GROUP, internalGroups = DEFAULT_INTERNAL_GROUPS, level = 'error' } = options;
 
   /**
    * Import pattern groups in priority order:
@@ -64,7 +79,7 @@ export const createImportSortRule = (
    */
   const groups: groupOption = [
     firstGroup,
-    ...(internalGroups.length > 0 ? [internalGroups] : []),
+    ...(internalGroups.length > 0 ? [internalGroups] : [DEFAULT_INTERNAL_GROUPS]),
     SIDE_EFFECT_IMPORTS_GROUP,
     PARENT_IMPORTS_GROUP,
     CURRENT_DIR_IMPORTS_GROUP,

@@ -1,4 +1,3 @@
-import pluginQuery from '@tanstack/eslint-plugin-query';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import react from 'eslint-plugin-react';
@@ -8,9 +7,11 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 
+import pluginQuery from '@tanstack/eslint-plugin-query';
+
 import { rule as invalidHookExtension } from '../rules/invalid-hook-extension';
-import type { Config } from '../types';
-import { createImportSortRule,EXTERNAL_IMPORTS_GROUP } from '../utils';
+import type { Config } from '../types/plugin';
+import { createImportSortRule, EXTERNAL_IMPORTS_GROUP } from '../utils/import-sort';
 
 import { baseConfig } from './base';
 
@@ -24,7 +25,7 @@ export const reactConfig: Config = [
   reactHooks.configs['recommended-latest'],
   reactRefresh.configs.vite,
   importPlugin.flatConfigs.react,
-  jsxA11y.flatConfigs.recommended,
+  jsxA11y.flatConfigs.strict,
   {
     name: 'bosh/react',
     files: ['**/*.{js,ts,jsx,tsx}'],

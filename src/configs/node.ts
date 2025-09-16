@@ -1,7 +1,7 @@
 import nodePlugin from 'eslint-plugin-n';
 import globals from 'globals';
 
-import type { Config } from '../types';
+import type { Config } from '../types/plugin';
 
 import { baseConfig } from './base';
 
@@ -20,7 +20,24 @@ export const nodeConfig: Config = [
       }
     },
     rules: {
-      'no-console': 'off' // Allow console in Node.js
+      // Allow console in Node.js
+      'no-console': 'off',
+
+      // eslint-plugin-n rules
+      'n/callback-return': 'error',
+      'n/exports-style': ['error', 'module.exports'],
+      'n/file-extension-in-import': ['error', 'never'],
+      'n/no-deprecated-api': 'error',
+      'n/no-missing-import': 'off',
+      'n/no-unsupported-features/es-syntax': ['error', {
+        ignores: []
+      }],
+      'n/no-unsupported-features/node-builtins': ['error', {
+        version: 'latest',
+        ignores: []
+      }],
+      'n/process-exit-as-throw': 'error',
+      'n/shebang': 'error'
     }
   }
 ];

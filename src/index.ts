@@ -3,7 +3,7 @@ import { nodeConfig } from './configs/node';
 import { reactConfig } from './configs/react';
 import { tsConfig } from './configs/typescript';
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
-import type { Plugin } from './types';
+import type { Plugin } from './types/plugin';
 
 /**
  * Main plugin object.
