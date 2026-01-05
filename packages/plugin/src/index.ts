@@ -5,6 +5,7 @@ import { tsConfig } from './configs/typescript';
 import { yamlConfig } from "./configs/yaml";
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
 import type { Plugin } from './types';
+import { jsonConfig } from "./configs/json";
 
 /**
  * Main plugin object.
@@ -41,10 +42,12 @@ import type { Plugin } from './types';
 const plugin: Plugin = {
   configs: {
     base: baseConfig,
+    json: jsonConfig,
     node: nodeConfig,
     react: reactConfig,
     recommended: [
       ...baseConfig,
+      ...jsonConfig,
       ...tsConfig,
       ...yamlConfig
     ],
