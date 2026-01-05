@@ -1,5 +1,7 @@
 # @bosh-code/eslint-plugin
 
+[![Release](https://github.com/bosh-code/eslint-plugin-bosh-code/actions/workflows/release.yaml/badge.svg)](https://github.com/bosh-code/eslint-plugin-bosh-code/actions/workflows/release.yaml)
+
 This is my personal *very* opinionated ESLint configuration. Use it if you would like, but it's definitely not for everyone.
 The main reason I made this was so that I didn't have to keep setting up ESLint
 for every side project.
@@ -69,4 +71,6 @@ export default [
 - YAML linting
 - JS config
 - JS Flow config?
-- more rules
+- More rules
+- [Grab rules from here](https://github.com/Jgaona/eslint-plugin-idiomatic-jsx)
+- [Look into this](https://www.npmjs.com/package/jsx-ast-utils)

@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "temp",
+    "sourceMap": false,
+    "removeComments": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.prod.tsbuildinfo"
+  },
+  "include": [
+    "src/**/*.ts",
+    "config.ts"
+  ],
+  "exclude": [
+    "src/public/"
+  ]
+}
