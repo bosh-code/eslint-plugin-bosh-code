@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitest/config';
+import { type UserConfig } from 'vite';
 import path from 'path';
 
-const config = defineConfig({
+const config: UserConfig = defineConfig({
   test: {
     globals: true,
     environment: 'node',

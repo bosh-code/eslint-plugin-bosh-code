@@ -12,13 +12,20 @@
     }
   ],
   "devDependencies": {
+    "@bosh-code/eslint-plugin": "workspace:2.0.0",
     "@commitlint/cli": "^20.3.0",
     "@commitlint/config-conventional": "^20.3.0",
-    "prettier": "^3.7.4"
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-plugin-eslint-plugin": "^7.2.0",
+    "eslint-plugin-n": "^17.23.1",
+    "prettier": "^3.7.4",
+    "typescript-eslint": "^8.51.0"
   },
   "scripts": {
     "build": "pnpm --filter=./packages/plugin build",
-    "lint": "pnpm -r --parallel lint"
+    "lint": "eslint .",
+    "lint:all": "pnpm -r --parallel lint"
   },
   "engines": {
     "node": ">=24.0.0"

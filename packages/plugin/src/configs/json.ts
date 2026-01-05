@@ -37,9 +37,6 @@ export const jsonConfig: Config = defineConfig([
     ],
     plugins: {json},
     language: 'json/jsonc',
-    languageOptions: {
-      allowTrailingComma: false
-    },
     extends: ['json/recommended']
   },
 
