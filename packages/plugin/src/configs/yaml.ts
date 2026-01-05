@@ -11,5 +11,8 @@ import { baseConfig } from './base';
  */
 export const yamlConfig: Config = defineConfig([
   ...baseConfig,
-  pluginYaml.configs.recommended
+  {
+    name: 'bosh/yaml',
+    ...pluginYaml.configs.recommended
+  }
 ]);

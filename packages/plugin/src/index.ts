@@ -6,6 +6,7 @@ import { yamlConfig } from "./configs/yaml";
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
 import type { Plugin } from './types';
 import { jsonConfig } from "./configs/json";
+import { markdownConfig } from './configs/markdown';
 
 /**
  * Main plugin object.
@@ -43,11 +44,13 @@ const plugin: Plugin = {
   configs: {
     base: baseConfig,
     json: jsonConfig,
+    markdown: markdownConfig,
     node: nodeConfig,
     react: reactConfig,
     recommended: [
       ...baseConfig,
       ...jsonConfig,
+      ...markdownConfig,
       ...tsConfig,
       ...yamlConfig
     ],
