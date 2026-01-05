@@ -2,6 +2,7 @@ import { baseConfig } from './configs/base';
 import { nodeConfig } from './configs/node';
 import { reactConfig } from './configs/react';
 import { tsConfig } from './configs/typescript';
+import { yamlConfig } from "./configs/yaml";
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
 import type { Plugin } from './types';
 
@@ -44,9 +45,11 @@ const plugin: Plugin = {
     react: reactConfig,
     recommended: [
       ...baseConfig,
-      ...tsConfig
+      ...tsConfig,
+      ...yamlConfig
     ],
-    ts: tsConfig
+    ts: tsConfig,
+    yaml: yamlConfig
   },
   rules: {
     'invalid-hook-extension': invalidHookExtension
@@ -54,6 +57,6 @@ const plugin: Plugin = {
 };
 
 export default plugin;
-export {   plugin };
+export { plugin };
 
-export {type Plugin} from './types';
+export { type Plugin } from './types';

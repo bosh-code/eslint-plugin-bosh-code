@@ -1,5 +1,5 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import love from 'eslint-config-love'
+import love from 'eslint-config-love';
 import eslintConfigPrettierFlat from 'eslint-config-prettier/flat';
 import eslintComments from 'eslint-plugin-eslint-comments';
 import importPlugin from 'eslint-plugin-import';
