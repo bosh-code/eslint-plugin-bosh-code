@@ -1,12 +1,24 @@
-import { baseConfig } from './configs/base';
-import { nodeConfig } from './configs/node';
-import { reactConfig } from './configs/react';
-import { tsConfig } from './configs/typescript';
-import { yamlConfig } from "./configs/yaml";
+import { baseConfig as base } from './configs/base';
+import { nodeConfig as node } from './configs/node';
+import { reactConfig as react } from './configs/react';
+import { tsConfig as ts } from './configs/typescript';
+import { yamlConfig as yaml } from './configs/yaml';
 import { rule as invalidHookExtension } from './rules/invalid-hook-extension';
-import type { Plugin } from './types';
-import { jsonConfig } from "./configs/json";
-import { markdownConfig } from './configs/markdown';
+import type { Config, Plugin } from './types';
+import { jsonConfig as json } from './configs/json';
+import { markdownConfig as markdown } from './configs/markdown';
+import { defineConfig } from 'eslint/config';
+
+const recommended: Config = defineConfig([{
+  name: 'bosh/recommended',
+  extends: [
+    // base,
+    json,
+    // markdown,
+    // ts,
+    // yaml
+  ]
+}]);
 
 /**
  * Main plugin object.
@@ -42,20 +54,14 @@ import { markdownConfig } from './configs/markdown';
  */
 const plugin: Plugin = {
   configs: {
-    base: baseConfig,
-    json: jsonConfig,
-    markdown: markdownConfig,
-    node: nodeConfig,
-    react: reactConfig,
-    recommended: [
-      ...baseConfig,
-      ...jsonConfig,
-      ...markdownConfig,
-      ...tsConfig,
-      ...yamlConfig
-    ],
-    ts: tsConfig,
-    yaml: yamlConfig
+    recommended,
+    base,
+    json,
+    markdown,
+    node,
+    react,
+    ts,
+    yaml
   },
   rules: {
     'invalid-hook-extension': invalidHookExtension

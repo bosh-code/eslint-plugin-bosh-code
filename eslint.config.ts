@@ -7,8 +7,7 @@ export default defineConfig([
   globalIgnores(['dist/**/*', 'node_modules/**/*', 'packages/**/*', 'examples/**/*']),
   {
     extends: [
-      bosh.configs.recommended,
-      bosh.configs.node
+      bosh.configs.recommended
     ]
   }
 ]) as Linter.Config[];

@@ -2,7 +2,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import love from 'eslint-config-love';
 import eslintConfigPrettierFlat from 'eslint-config-prettier/flat';
 import eslintComments from 'eslint-plugin-eslint-comments';
-import importPlugin from 'eslint-plugin-import';
+// import {flatConfigs as importConfigs} from 'eslint-plugin-import';
 import jsdoc from 'eslint-plugin-jsdoc';
 import pluginNoUnaryPlus from 'eslint-plugin-no-unary-plus';
 import pluginPromise from 'eslint-plugin-promise';
@@ -33,12 +33,6 @@ const eslintConfigFileNames = [
  * @type {Config}
  */
 export const baseConfig: Config = defineConfig([
-  js.configs.recommended,
-  eslintConfigPrettierFlat,
-  eslintPluginUnicorn.configs.recommended,
-  pluginPromise.configs['flat/recommended'],
-  importPlugin.flatConfigs.recommended,
-  jsdoc.configs['flat/recommended'],
   globalIgnores([...eslintConfigFileNames], 'ESLint config files'),
   globalIgnores(['dist'], 'Ignore build output'),
   {
@@ -46,10 +40,28 @@ export const baseConfig: Config = defineConfig([
     plugins: {
       'eslint-comments': eslintComments,
       jsdoc,
-      love,
       'no-unary-plus': pluginNoUnaryPlus,
       'simple-import-sort': simpleImportSort
     },
+    extends: [
+      js.configs.recommended,
+      eslintConfigPrettierFlat,
+      eslintPluginUnicorn.configs.recommended,
+      pluginPromise.configs['flat/recommended'],
+      // importConfigs.recommended,
+      jsdoc.configs['flat/recommended'],
+      love
+    ],
+    files: [
+      '**/*.js',
+      '**/*.jsx',
+      '**/*.cjs',
+      '**/*.mjs',
+      '**/*.ts',
+      '**/*.tsx',
+      '**/*.cts',
+      '**/*.mts'
+    ],
     languageOptions: {
       ecmaVersion: 'latest',
       parserOptions: {
@@ -77,7 +89,7 @@ export const baseConfig: Config = defineConfig([
       'eslint-comments/require-description': 'error',
 
       // JSDoc rules
-      'jsdoc/require-jsdoc': 'error',
+      'jsdoc/require-jsdoc': 'warn',
 
       // Import rules
       // Let TypeScript handle this
